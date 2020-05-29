@@ -1,0 +1,14 @@
+<h2>{{legend}} - {{percent}}</h2>
+<div class="input-group">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" (click)="decrementPercent()">
+            <i class="mdi mdi-minus"></i>
+        </button>
+    </span>
+    <input type="number" class="form-control" name="percent" min="1" max="100" [value]="percent" [(ngModel)]="percent" (ngModelChange)="onChange($event)" #inputProgress>
+    <span class="input-group-btn">
+        <button class="btn btn-primary" (click)="incrementPercent()">
+            <i class="mdi mdi-plus"></i>
+        </button>
+    </span>
+</div>

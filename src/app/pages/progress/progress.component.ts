@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-progress',
@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class ProgressComponent implements OnInit {
+export class ProgressComponent {
+  progressBarBlue = 30;
+  progressBarGreen = 20;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
