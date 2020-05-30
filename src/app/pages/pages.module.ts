@@ -12,6 +12,7 @@ import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
 import { IncrementComponent } from '../components/increment/increment.component';
 import { GraphicChartComponent } from '../components/graphic-chart/graphic-chart.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { GraphicChartComponent } from '../components/graphic-chart/graphic-chart
         ProgressComponent,
         Graphic1Component,
         IncrementComponent,
-        GraphicChartComponent
+        GraphicChartComponent,
+        AccountSettingsComponent
     ],
     imports: [
         CommonModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { BreadcumbsComponent } from './breadcumbs/breadcumbs.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +14,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
         BreadcumbsComponent,
         NopagefoundComponent
     ],
-    imports: [ CommonModule ],
+    imports: [
+        CommonModule,
+        RouterModule
+     ],
     exports: [
         HeaderComponent,
         SidebarComponent,

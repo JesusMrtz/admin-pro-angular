@@ -4,6 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SidebarService {
+  menu: any = [
+    {
+      title: 'Principal',
+      icon: 'mdi mdi-gauge',
+      submenu: [
+        {
+          title: 'Dashboard',
+          url: '/dashboard',
+        },
+        {
+          title: 'ProgressBar',
+          url: '/progress',
+        },
+        {
+          title: 'Gráficas',
+          url: '/graphic1',
+        }
+      ]
+    }
+  ];
 
   constructor() { }
 }
