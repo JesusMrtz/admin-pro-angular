@@ -13,15 +13,21 @@ import { PagesComponent } from './pages.component';
 import { IncrementComponent } from '../components/increment/increment.component';
 import { GraphicChartComponent } from '../components/graphic-chart/graphic-chart.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
         PagesComponent,
+        DashboardComponent,
         ProgressComponent,
         Graphic1Component,
         IncrementComponent,
         GraphicChartComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromisesComponent,
+        RxjsComponent
     ],
     imports: [
         CommonModule,
@@ -32,6 +38,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
      ],
     exports: [
         PagesComponent,
+        DashboardComponent,
         ProgressComponent,
         Graphic1Component
     ],
