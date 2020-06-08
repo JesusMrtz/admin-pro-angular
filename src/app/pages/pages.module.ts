@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 // Módulos
 import { ChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
+import { PipesModule } from '../pipes/pipes.module';
 // Routing
 import { PAGE_ROUTES } from './pages.routing';
 // Component
@@ -16,6 +17,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -27,14 +29,16 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraphicChartComponent,
         AccountSettingsComponent,
         PromisesComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     imports: [
         CommonModule,
         SharedModule,
         PAGE_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
      ],
     exports: [
         PagesComponent,

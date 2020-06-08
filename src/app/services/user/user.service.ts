@@ -5,6 +5,7 @@ import { UserModel } from '../../models/user.model';
 import { URL } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 import swal from 'sweetalert';
+import { UploadFileService } from '../uploadFile/upload-file.service';
 
 
 @Injectable({
@@ -14,15 +15,42 @@ export class UserService {
   user: UserModel;
   token: string;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private uploadFileService: UploadFileService) {
     this.loadStorage();
   }
 
   createUser(user: UserModel) {
     return this.http.post(`${URL}/user`, user).pipe(map((response: any) => {
+      this.saveStorage(response);
       swal('Usuario creado', user.email, 'success');
-      return response.data;
+      return true;
     }));
+  }
+
+  updateUser(user: UserModel) {
+    const url = `${URL}/user/${user._id}?token=${this.token}`;
+
+    return this.http.put(url, user).pipe(map((response: any) => {
+      response.id = user._id;
+      response.token = this.token;
+      this.saveStorage(response);
+      swal('Usuario actualizado', user.name, 'success');
+      return true;
+    }));
+  }
+
+  changeImage(file: File, id: string) {
+    this.uploadFileService.uploadFile(file, 'user', id)
+    .then((response: any) => {
+      this.user.image = response.data.image;
+      swal('Imagen actualizada', this.user.name, 'success');
+      response.id = this.user._id;
+      response.token = this.token;
+      this.saveStorage(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   isLogged() {
