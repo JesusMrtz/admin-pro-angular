@@ -19,6 +19,17 @@ export class UserService {
     this.loadStorage();
   }
 
+  loadUsers(from: number) {
+    const url = `${URL}/users?from=${from}`;
+
+    return this.http.get(url);
+  }
+
+  searchUsers(search: string) {
+    const url = `${URL}/search/user/${search}`;
+    return this.http.get(url).pipe(map((response: any) => response.data));
+  }
+
   createUser(user: UserModel) {
     return this.http.post(`${URL}/user`, user).pipe(map((response: any) => {
       this.saveStorage(response);
@@ -31,12 +42,20 @@ export class UserService {
     const url = `${URL}/user/${user._id}?token=${this.token}`;
 
     return this.http.put(url, user).pipe(map((response: any) => {
-      response.id = user._id;
-      response.token = this.token;
-      this.saveStorage(response);
+      if (response._id === this.user._id) {
+        response.id = user._id;
+        response.token = this.token;
+        this.saveStorage(response);
+      }
+
       swal('Usuario actualizado', user.name, 'success');
       return true;
     }));
+  }
+
+  deleteUser(id: string) {
+    const url = `${URL}/user/${id}?token=${this.token}`;
+    return this.http.delete(url);
   }
 
   changeImage(file: File, id: string) {

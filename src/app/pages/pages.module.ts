@@ -18,6 +18,8 @@ import { PromisesComponent } from './promises/promises.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +32,9 @@ import { ProfileComponent } from './profile/profile.component';
         AccountSettingsComponent,
         PromisesComponent,
         RxjsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UsuariosComponent,
+        ModalUploadComponent
     ],
     imports: [
         CommonModule,
