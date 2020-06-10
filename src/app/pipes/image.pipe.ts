@@ -14,8 +14,7 @@ export class ImagePipe implements PipeTransform {
     }
 
     const URL_PATH = `${URL}/images`;
-
-    if (type === 'user' || type === 'doctor' || type === 'hospital' ) {
+    if ((type === 'user' || type === 'doctor' || type === 'hospital')) {
       return URL_PATH + `/${type}/${image}`;
     } else {
       return URL_PATH + '/user/xxxx';

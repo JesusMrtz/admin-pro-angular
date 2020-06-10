@@ -55,10 +55,7 @@ export class UsuariosComponent implements OnInit {
       return;
     }
 
-    this.userService.searchUsers(search).subscribe((response: any) => {
-      console.log(response);
-      this.users = response;
-    });
+    this.userService.searchUsers(search).subscribe((response: any) => this.users = response);
   }
 
   deleteUser(user: UserModel) {
@@ -71,17 +68,11 @@ export class UsuariosComponent implements OnInit {
       title: 'Eliminar registro',
       text: `Desea borrar a ${user.name}`,
       icon: 'warning',
-      buttons: {
-        cancel: 'Cancelar',
-        catch: {
-          text: 'Eliminar',
-          value: 'eliminar',
-        }
-      },
+      buttons: ['Cancelar', true],
       dangerMode: true,
     })
     .then((deleteUser) => {
-      if (deleteUser === 'eliminar') {
+      if (deleteUser) {
         this.userService.deleteUser(user._id).subscribe((response) => {
           this.loadUser();
         });

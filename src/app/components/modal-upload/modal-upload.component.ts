@@ -13,9 +13,7 @@ export class ModalUploadComponent implements OnInit {
   image: File;
   temporalImage: string | ArrayBuffer;
 
-  constructor(public uploadFileService: UploadFileService, public modalUploadService: ModalUploadService) {
-    console.log('Modal listo');
-  }
+  constructor(public uploadFileService: UploadFileService, public modalUploadService: ModalUploadService) {}
 
   ngOnInit(): void {}
 

@@ -1,0 +1,65 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input type="text" class="form-control" placeholder="Buscar usuario" (keyup)="searchHospitals(inputSearch.value)" #inputSearch>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="loading">
+    <div class="col-12">
+        <div class="alert alert-success text-center">
+            <strong class="mb-2">Cargando</strong>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!loading">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+                    <button class="btn btn-primary" (click)="createHospital()">
+                        <i class="fa fa-plus"></i> Crear hospital
+                    </button>
+                </div>
+                <h2 class="card-title">Hospitales registrados (<small>{{countHospitals}}</small>)</h2>
+                <table class="table table-hover" *ngIf="countHospitals">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitals">
+                            <td class="w70">
+                                <img [src]="hospital.image | image:'hospital'" [alt]="hospital.name" class="w50 pointer" (click)="showModal(hospital._id)">
+                            </td>
+                            <td>{{hospital.name}}</td>
+                            <td>
+                                <button class="btn btn-primary mr-2">
+                                    <i class="fa fa-save"></i>
+                                </button>
+                                <button class="btn btn-danger" (click)="deleteHospital(hospital)">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-secondary mr-2" (click)="previusHospitals(-5)" [disabled]="!from" *ngIf="countHospitals">
+                    Anteriores
+                </button>
+                <button class=" btn btn-secondary " (click)="nextHospitals(5); " [disabled]="countHospitals % from > 0" *ngIf="countHospitals"> Siguientes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

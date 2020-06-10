@@ -10,6 +10,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalComponent } from './hospital/hospital.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 const PAGES_ROUTES: Routes = [
     {
@@ -25,9 +28,9 @@ const PAGES_ROUTES: Routes = [
             { path: 'account-settings', component: AccountSettingsComponent, data: {title: 'Pérfil'} },
             { path: 'profile', component: ProfileComponent, data: {title: 'Pérfil'} },
             { path: 'users', component: UsuariosComponent, data: {title: 'Usuarios'} },
-            { path: 'profile', component: ProfileComponent, data: {title: 'Pérfil'} },
-            { path: 'profile', component: ProfileComponent, data: {title: 'Pérfil'} },
-            { path: 'profile', component: ProfileComponent, data: {title: 'Pérfil'} },
+            { path: 'hospitals', component: HospitalComponent, data: {title: 'Hospitales'} },
+            { path: 'doctors', component: DoctorsComponent, data: {title: 'Doctores'} },
+            { path: 'doctor/:id', component: DoctorComponent, data: {title: 'Doctor'} },
 
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
