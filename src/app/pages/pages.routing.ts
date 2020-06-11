@@ -13,6 +13,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../services/guards/admin.guard';
 
 const PAGES_ROUTES: Routes = [
     {
@@ -27,7 +29,8 @@ const PAGES_ROUTES: Routes = [
             { path: 'rxjs', component: RxjsComponent, data: {title: 'Observadores'} },
             { path: 'account-settings', component: AccountSettingsComponent, data: {title: 'Pérfil'} },
             { path: 'profile', component: ProfileComponent, data: {title: 'Pérfil'} },
-            { path: 'users', component: UsuariosComponent, data: {title: 'Usuarios'} },
+            { path: 'search/:search', component: SearchComponent },
+            { path: 'users', component: UsuariosComponent, data: {title: 'Usuarios'}, canActivate: [AdminGuard] },
             { path: 'hospitals', component: HospitalComponent, data: {title: 'Hospitales'} },
             { path: 'doctors', component: DoctorsComponent, data: {title: 'Doctores'} },
             { path: 'doctor/:id', component: DoctorComponent, data: {title: 'Doctor'} },
